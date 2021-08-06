@@ -18,7 +18,7 @@ export class ResultScene extends Phaser.Scene {
 
     constructor() {
         super({
-            key: 'ResultScene',
+            key: 'result-scene',
         });
     }
 

@@ -5,6 +5,7 @@ const HEIGHT: number = 360 * FACTOR;
 const INITIAL_DELAY = 15000;
 const SCROLL_SPEED = 40;
 
+const START_SIZE: number = 50 * FACTOR;
 const POSITION_SIZE: number = 50 * FACTOR;
 const MATCH_TOP: number = 10 * FACTOR;
 const MATCH_GAP: number = 5 * FACTOR;
@@ -15,6 +16,10 @@ const KIMARITE_HEIGHT: number = 50 * FACTOR;
 const KIMARITE_HEIGHT_ADJUST: number = KIMARITE_HEIGHT - 10 * FACTOR;
 const VERTICAL_LINE_SPACING = -5;
 
+const START_FONTSTYLE: Phaser.Types.GameObjects.Text.TextStyle = {
+    align: 'center',
+    fontFamily: 'Dela Gothic One',
+};
 const POSITION_FONTSTYLE: Phaser.Types.GameObjects.Text.TextStyle = {
     align: 'center',
     backgroundColor: '#FEEEED',
@@ -53,6 +58,7 @@ export {
     HEIGHT,
     INITIAL_DELAY,
     SCROLL_SPEED,
+    START_SIZE,
     POSITION_SIZE,
     MATCH_TOP,
     MATCH_WIDTH,
@@ -62,6 +68,7 @@ export {
     KIMARITE_HEIGHT,
     KIMARITE_HEIGHT_ADJUST,
     VERTICAL_LINE_SPACING,
+    START_FONTSTYLE,
     POSITION_FONTSTYLE,
     SCORE_FONTSTYLE,
     SHIKONA_FONTSTYLE,

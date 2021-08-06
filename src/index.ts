@@ -1,6 +1,7 @@
 import 'phaser';
 import { HEIGHT, WIDTH } from './consts';
 import { ResultScene } from './scenes/result-scene';
+import { StartScene } from './scenes/start-scene';
 
 const config: Phaser.Types.Core.GameConfig = {
     title: 'sumo result',
@@ -14,11 +15,11 @@ const config: Phaser.Types.Core.GameConfig = {
         autoCenter: Phaser.Scale.CENTER_BOTH,
         parent: 'result',
     },
-    scene: [ResultScene],
+    scene: [StartScene, ResultScene],
     input: {
         keyboard: false,
-        mouse: false,
-        touch: false,
+        mouse: true,
+        touch: true,
     },
     physics: {
         default: 'arcade',
