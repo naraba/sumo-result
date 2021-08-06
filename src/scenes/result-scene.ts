@@ -8,6 +8,7 @@ import {
 import { Match } from '../objects/match';
 import WebFontFile from '../utils/webfontfile';
 import { BlockingQueue } from 'promise-blocking-queue';
+import bgImage from '../assets/bg.png';
 
 export class ResultScene extends Phaser.Scene {
     private isScrolling: boolean;
@@ -22,7 +23,7 @@ export class ResultScene extends Phaser.Scene {
     }
 
     preload(): void {
-        this.load.image('bg', '../assets/bg.png');
+        this.load.image('bg', bgImage);
         this.load.addFile(
             new WebFontFile(this.load, ['Dela Gothic One', 'Noto Sans JP']),
         );

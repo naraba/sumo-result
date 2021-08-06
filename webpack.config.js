@@ -5,8 +5,6 @@ const pathToPhaser = path.join(__dirname, "/node_modules/phaser/");
 const phaser = path.join(pathToPhaser, "dist/phaser.js");
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const CopyPlugin = require("copy-webpack-plugin");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -14,7 +12,8 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        clean: true,
     },
 
     module: {
@@ -26,25 +25,26 @@ module.exports = {
                 options: {
                     exposes: { globalName: 'Phaser', override: true },
                 },
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                }
             }
         ]
     },
 
     plugins: [
-        new CopyPlugin({
-            patterns: [{
-                from: path.resolve(__dirname, 'src/assets'),
-                to: path.resolve(__dirname, 'dist/assets')
-            }],
-        }),
         new HtmlWebpackPlugin({
             template: "./src/index.html"
         })
     ],
 
     performance: {
-        maxEntrypointSize: 900000,
-        maxAssetSize: 900000
+        maxEntrypointSize: 1300000,
+        maxAssetSize: 1300000
     },
 
     devServer: {
