@@ -34,6 +34,5 @@ export class Game extends Phaser.Game {
 }
 
 window.addEventListener('load', () => {
-    console.log("game initiated")
     new Game(config);
 });

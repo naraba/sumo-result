@@ -1,8 +1,6 @@
 import { POSITION_SIZE, POSITION_FONTSTYLE } from '../consts';
 
 export class Position extends Phaser.GameObjects.Text {
-    private arcBody: Phaser.Physics.Arcade.Body;
-
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     constructor(params) {
         super(
