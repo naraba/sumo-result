@@ -22,12 +22,13 @@ export class StartScene extends Phaser.Scene {
     }
 
     create(): void {
-        this.add
+        this.add.text(0, 0, '東西', START_FONTSTYLE).setVisible(false);
+
+        const img = this.add
             .image(0, 0, 'bg')
             .setAlpha(0.5)
             .setOrigin(0, 0)
             .setDisplaySize(WIDTH, HEIGHT);
-        this.add.text(0, 0, '東西', START_FONTSTYLE).setVisible(false);
         const btn = this.add
             .text(
                 (WIDTH - START_SIZE) / 2,
@@ -38,6 +39,8 @@ export class StartScene extends Phaser.Scene {
             .setFontSize(START_SIZE);
         btn.scaleX = START_SIZE / btn.width;
         btn.scaleY = START_SIZE / btn.height;
+
+        img.setInteractive().on('pointerdown', this.sayDummyToneAndStart, this);
         btn.setInteractive().on('pointerdown', this.sayDummyToneAndStart, this);
     }
 

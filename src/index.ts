@@ -26,6 +26,7 @@ const config: Phaser.Types.Core.GameConfig = {
     },
     backgroundColor: '#000',
     render: { pixelArt: false, antialias: true },
+    fps: { target: 30 },
 };
 
 export class Game extends Phaser.Game {
