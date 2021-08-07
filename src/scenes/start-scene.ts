@@ -40,6 +40,10 @@ export class StartScene extends Phaser.Scene {
 
     private sayDummyToneAndStart(): void {
         speechSynthesis.speak(new SpeechSynthesisUtterance());
+        this.time.delayedCall(100, this.switch, null, this);
+    }
+
+    private switch(): void {
         this.scene.switch('result-scene');
     }
 }
