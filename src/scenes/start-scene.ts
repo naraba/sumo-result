@@ -3,8 +3,6 @@ import WebFontFile from '../utils/webfontfile';
 import bgImage from '../assets/bg.png';
 
 export class StartScene extends Phaser.Scene {
-    private uttr: SpeechSynthesisUtterance;
-
     constructor() {
         super({
             key: 'start-scene',
@@ -16,9 +14,6 @@ export class StartScene extends Phaser.Scene {
         this.load.addFile(
             new WebFontFile(this.load, ['Dela Gothic One', 'Noto Sans JP']),
         );
-
-        this.uttr = new SpeechSynthesisUtterance();
-        this.uttr.lang = 'ja-JP';
     }
 
     create(): void {
@@ -41,12 +36,10 @@ export class StartScene extends Phaser.Scene {
         btn.scaleY = START_SIZE / btn.height;
 
         img.setInteractive().on('pointerdown', this.sayDummyToneAndStart, this);
-        btn.setInteractive().on('pointerdown', this.sayDummyToneAndStart, this);
     }
 
     private sayDummyToneAndStart(): void {
-        this.uttr.text = '';
-        speechSynthesis.speak(this.uttr);
+        speechSynthesis.speak(new SpeechSynthesisUtterance());
         this.scene.switch('result-scene');
     }
 }
